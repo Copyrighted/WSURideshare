@@ -17,4 +17,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Create Trip" />
+
+    <ListView
+        android:id="@+id/show_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
