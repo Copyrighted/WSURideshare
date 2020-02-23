@@ -18,29 +18,18 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.rideshare_00.GetList.getList;
 import com.example.rideshare_00.R;
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
-    private Button button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        button = (Button) findViewById(R.id.registerBtn);
-        button.setOnClickListener( new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                openRegisterActivity();
-            }
-
-        });
-
-
-
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
@@ -116,7 +105,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,11 +125,6 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
-
-    //function to open Register Activity view
-    public void openRegisterActivity(){
-        Intent intent = new Intent (this, registerActivity.class);
-
     public void GetList(){
         Intent intent = new Intent(this, getList.class);
         startActivity(intent);
