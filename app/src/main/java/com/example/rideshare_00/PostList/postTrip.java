@@ -8,7 +8,7 @@ import com.example.rideshare_00.R;
 
 public class postTrip extends AppCompatActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState ){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.post_trip);
     }
