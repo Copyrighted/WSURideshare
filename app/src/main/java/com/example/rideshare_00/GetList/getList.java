@@ -32,14 +32,15 @@ public class getList extends AppCompatActivity {
         contacts.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                //adapter.clear();
                 adapter.add((String)dataSnapshot.child("From").getValue()+ "->"+ (String)dataSnapshot.child("Dst").getValue());
-
 
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                //adapter.clear();
+                //adapter.add((String)dataSnapshot.child("From").getValue()+ "->"+ (String)dataSnapshot.child("Dst").getValue());
             }
 
             @Override
