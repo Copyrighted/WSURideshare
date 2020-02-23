@@ -89,7 +89,7 @@
         android:id="@+id/registerBack"
         android:layout_width="271dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="100dp"
         android:text="@string/registerBtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

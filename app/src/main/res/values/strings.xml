@@ -13,4 +13,18 @@
     <string name="log_in">Log in</string>
     <string name="registerBtn">Register</string>
     <string name="nametext">nameText</string>
+    <string name="create_trip">Create Trip</string>
+    <string name="toBtn">TO</string>
+    <string name="fromText">From</string>
+    <string name="toText">To</string>
+    <string name="searchBtn">Search</string>
+    <string name="fromPrompt">From</string>
+    <string name="destinationPropmt">Destination</string>
+    <string name="driver_name">Driver Name</string>
+    <string name="confirm">Confirm</string>
+    <string name="nameText">Name</string>
+    <string name="registerText">Register</string>
+    <string name="passwordText">Password</string>
+    <string name="create_accountText">Create Account</string>
+    <string name="Description">Description</string>
 </resources>
