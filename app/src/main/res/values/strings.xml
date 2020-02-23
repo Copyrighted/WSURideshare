@@ -9,4 +9,12 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="log_in">Log in</string>
+    <string name="appl_ogo">appLogo</string>
+    <string name="registerBtn">Register</string>
+    <string name="create_account">Create Account</string>
+    <string name="registerBtn2">Resgister</string>
+    <string name="namePlaceholder">Name</string>
+    <string name="register2Btn">Register</string>
+    <string name="passwordText">Password</string>
 </resources>
