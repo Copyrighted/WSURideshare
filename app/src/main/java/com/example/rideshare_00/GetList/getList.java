@@ -17,30 +17,40 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import android.os.Handler;
 
 public class getList extends AppCompatActivity {
 
-
+    DatabaseReference contacts;
+    FirebaseDatabase database;
+    int i=0;
     @Override
     protected void onCreate(Bundle savedInstanceState ){
+        super.onCreate(savedInstanceState);
+        database = FirebaseDatabase.getInstance();
+        contacts= database.getReference("Trip");
+        database.getReference("Trip").keepSynced(true);
         setContentView(R.layout.get_list);
         ListView list = findViewById(R.id.show_list);
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1);
         list.setAdapter(adapter);
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference contacts = database.getReference("Trip");
         contacts.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                //adapter.clear();
-                adapter.add((String)dataSnapshot.child("From").getValue()+ "->"+ (String)dataSnapshot.child("Dst").getValue());
+                if(dataSnapshot.child("From").getValue()!=null && dataSnapshot.child("Dst").getValue()!=null) {
+                    adapter.add((String) dataSnapshot.child("From").getValue() + "->" + (String) dataSnapshot.child("Dst").getValue());
+                    adapter.notifyDataSetChanged();
+                }
 
             }
-
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                //adapter.clear();
-                //adapter.add((String)dataSnapshot.child("From").getValue()+ "->"+ (String)dataSnapshot.child("Dst").getValue());
+                if(dataSnapshot.child("From").getValue()!=null && dataSnapshot.child("Dst").getValue()!=null && i==2){
+                    adapter.add((String)dataSnapshot.child("From").getValue()+ "->"+ (String)dataSnapshot.child("Dst").getValue());
+                    i=0;
+                }
+                adapter.notifyDataSetChanged();
+                i++;
             }
 
             @Override
@@ -59,7 +69,7 @@ public class getList extends AppCompatActivity {
 
             }
         });
-        super.onCreate(savedInstanceState);
+
         Button create_btn= findViewById(R.id.create_btn);
         create_btn.setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -70,8 +80,9 @@ public class getList extends AppCompatActivity {
             }
         });
     }
-    public void PostTrip(){
-
-    }
+//    public void onDestroy() {
+//        super.onDestroy();
+//        contacts.removeEventListener((ChildEventListener) this);
+//    }
 
 }
