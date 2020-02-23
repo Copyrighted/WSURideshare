@@ -25,11 +25,22 @@ import com.example.rideshare_00.R;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
+    private Button button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        button = (Button) findViewById(R.id.registerBack);
+        button.setOnClickListener( new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                openRegisterActivity();
+            }
+
+        });
+
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
@@ -127,6 +138,11 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void GetList(){
         Intent intent = new Intent(this, getList.class);
+        startActivity(intent);
+    }
+    //function to open Register Activity view
+    public void openRegisterActivity(){
+        Intent intent = new Intent (this, activityRegister.class);
         startActivity(intent);
     }
 }

@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import com.example.rideshare_00.R;
-import com.example.rideshare_00.GetList.getList;
+
 public class postTrip extends AppCompatActivity {
     private DatabaseReference mDatabase;
     Button confrim_btn;
