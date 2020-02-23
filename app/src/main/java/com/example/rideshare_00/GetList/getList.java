@@ -28,11 +28,11 @@ public class getList extends AppCompatActivity {
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1);
         list.setAdapter(adapter);
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference contacts = database.getReference("give");
+        DatabaseReference contacts = database.getReference("Trip");
         contacts.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                adapter.add((String)dataSnapshot.child("from").getValue()+ "->"+ (String)dataSnapshot.child("to").getValue());
+                adapter.add((String)dataSnapshot.child("From").getValue()+ "->"+ (String)dataSnapshot.child("Dst").getValue());
 
 
             }
@@ -44,7 +44,7 @@ public class getList extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-                adapter.remove((String) dataSnapshot.child("from").getValue()+ "->" +(String) dataSnapshot.child("to").getValue());
+                adapter.remove((String) dataSnapshot.child("From").getValue()+ "->" +(String) dataSnapshot.child("Dst").getValue());
 
             }
 
