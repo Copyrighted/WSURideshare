@@ -18,8 +18,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 import com.example.rideshare_00.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -117,6 +115,17 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadingProgressBar.setVisibility(View.VISIBLE);
+                loginViewModel.login(usernameEditText.getText().toString(),
+                        passwordEditText.getText().toString());
+                GetList();
+            }
+        });
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
@@ -128,9 +137,13 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+
     //function to open Register Activity view
     public void openRegisterActivity(){
         Intent intent = new Intent (this, registerActivity.class);
+
+    public void GetList(){
+        Intent intent = new Intent(this, getList.class);
         startActivity(intent);
     }
 }
