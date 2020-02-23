@@ -5,9 +5,38 @@
     android:layout_height="match_parent"
     tools:context="PostList.postTrip">
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/frmTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="HI, 456" />
+        android:ems="10"
+        android:hint="From"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/dstTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Destination"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/D_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Driver Name"
+        android:inputType="textPersonName" />
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/confrim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confrim" />
 </LinearLayout>
