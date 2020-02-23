@@ -43,6 +43,7 @@ public class postTrip extends AppCompatActivity {
 
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 selectedDate= sdf.format(new Date(calendar.getDate()));
+                System.out.println(selectedDate);
                 mDatabase.child("Trip").child(timestap).child("Date").setValue(selectedDate);
                 mDatabase.child("Trip").child(timestap).child("From").setValue(from);
                 mDatabase.child("Trip").child(timestap).child("Dst").setValue(dst);
